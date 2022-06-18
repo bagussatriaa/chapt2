@@ -1,0 +1,22 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+nav a img:hover {
+  transform: rotate(-5deg) scale(1.1);
+}
+nav .btn {
+  background-color: #010a29;
+}
+nav .btn:hover {
+  background-color: #066163;
+}
+main {
+  background-color: #e7e9ee;
+}
+form button {
+  background-color: #010a29;
+}
+form button:hover {
+  background-color: #066163;
+  border-color: #066163;
+}
