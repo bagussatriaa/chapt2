@@ -1,0 +1,125 @@
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <title>Web</title>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css' />
+    <link href='https://fonts.googleapis.com/css2?family=Poppins&display=swap' rel='stylesheet' />
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor' crossorigin='anonymous' />
+
+    <!--My css  -->
+    <link rel='stylesheet' href='../assets/css/style.css' />
+  </head>
+  <body>
+    <!-- Nav -->
+    <nav class='navbar navbar-expand-lg bg-light'>
+      <div class='container'>
+        <a class='navbar-brand' href='/'><img src='../assets/download-removebg-preview.png' width='50' alt='Logo' /></a>
+        <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+          <span class='navbar-toggler-icon'></span>
+        </button>
+        <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+          <ul class='navbar-nav ms-3 me-auto mb-2 mb-lg-0'>
+            <li class='nav-item'>
+              <a class='nav-link active' aria-current='page' href='/'>Home</a>
+            </li>
+            <li class='nav-item'>
+              <a class='nav-link' href='/project'>Add Project</a>
+            </li>
+          </ul>
+          <a href='/contact'> <button class='btn text-light rounded-3' type='submit'>Contact Me</button></a>
+        </div>
+      </div>
+    </nav>
+    <!-- First display -->
+    <header>
+      <div class='container rounded-4 shadow bg-body'>
+        <div class='row'>
+          <div class='col-lg-7'>
+            <h2>Hi Welcome to my Huts</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae ipsum, sequi voluptas pariatur, ex illum corrupti dignissimos quas, aliquam debitis temporibus sint! Facere consequatur quos dolor sit, at aliquid quam iure
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero accusamus earum hic numquam impedit in veniam cupiditate facilis eligendi optio dolorem voluptates veritatis fugit, eius labore! Corrupti autem alias dolorum
+            </p>
+
+            <a class='btn rounded-5 text-light' href='/contact'>Contact</a>
+            <p class='d-inline ms-3'>Download CV<i class='bi bi-download fs-3 ms-2'></i></p>
+            <div class='d-block mt-3'>
+              <i class='bi bi-linkedin fs-1 ps-3 pe-3'></i>
+              <i class='bi bi-instagram fs-1 pe-3'></i>
+              <i class='bi bi-facebook fs-1 pe-3'></i>
+              <i class='bi bi-twitter fs-1 pe-3'></i>
+            </div>
+          </div>
+          <div class='col-lg-5 d-flex justify-content-center'>
+            <div class='rounded shadow bg-body'>
+              <img src='../assets/vicky.jpg' class='rounded-top' style='width: 15rem' alt='Pict' />
+              <h5 class='fw-bold text-center mt-2'>Bram</h5>
+              <p class='text-center' style='margin-top: -10px'>Fullstack Developer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Project display -->
+    <div class='container'>
+      <h2 class='text-center mt-5 fw-bold mb-5'>MY PROJECT</h2>
+      <div class='row'>
+        <!-- 1 -->
+
+        {{#each blogs}}
+          <div class='col-lg-4 mb-5'>
+            <div class='card' width='10rem'>
+              <img src='https://images.unsplash.com/photo-1603732551658-5fabbafa84eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fHRlY2hub2xvZ2llc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60' alt='Pict' class='mb-1' />
+              <h2>{{this.projectName}}</h2>
+              <h6>From {{this.startDate}} To {{this.endDate}} </h6>
+
+              <p>{{this.desc}}</p>
+              {{#if isLogin}}
+                <div class='d-flex justify-content-evenly'>
+                  <div class='btn text-light ps-5 pe-5'>Edit</div>
+                  <div class='btn text-light ps-5 pe-5'><a href='/delete-blog/{{@index}}'> Delete</a></div>
+                </div>
+              {{/if}}
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js' integrity='sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2' crossorigin='anonymous'></script>
+  </body>
+</html>
+
+<!-- 2 -->
+{{! <div class='col-lg-4 mb-5'>
+          <div class='card' width='10rem'>
+            <img src='https://images.unsplash.com/photo-1603732551658-5fabbafa84eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fHRlY2hub2xvZ2llc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60' alt='Pict' class='mb-1' />
+            <h2>Title</h2>
+            <h6>Duration :</h6>
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quod deleniti est neque tenetur voluptatibus ad atque dolorem libero magnam!</p>
+            <div class='d-flex justify-content-evenly'>
+              <div class='btn text-light ps-5 pe-5'>Edit</div>
+              <div class='btn text-light ps-5 pe-5'>Delete</div>
+            </div>
+          </div>
+        </div>
+        <!-- 3 -->
+        
+        <!-- 4 -->
+        <div class='col-lg-4 mb-5'>
+          <div class='card besar' width='10rem'>
+            <img src='https://images.unsplash.com/photo-1628054330566-5552b7b25523?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTMyfHx0ZWNobm9sb2dpZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60' alt='Pict' class='mb-1' />
+            <h2>Title</h2>
+            <h6>Duration :</h6>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quod deleniti est neque tenetur voluptatibus ad atque dolorem libero magnam!</p>
+            <div class='d-flex justify-content-evenly'>
+              <div class='btn text-light ps-5 pe-5'>Edit</div>
+              <div class='btn text-light ps-5 pe-5'>Delete</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> }}
