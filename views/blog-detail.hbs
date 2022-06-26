@@ -1,0 +1,76 @@
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <title>Detail Project</title>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor' crossorigin='anonymous' /><link
+      rel='stylesheet'
+      href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css'
+      integrity='sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=='
+      crossorigin='anonymous'
+      referrerpolicy='no-referrer'
+    />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css' />
+    <link href='https://fonts.googleapis.com/css2?family=Poppins&display=swap' rel='stylesheet' />
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor' crossorigin='anonymous' />
+    <link rel='stylesheet' href='../assets/css/blogdetail.css' />
+  </head>
+  <body>
+    <nav class='navbar navbar-expand-lg bg-light'>
+      <div class='container'>
+        <a class='navbar-brand' href='/'><img src='../assets/download-removebg-preview.png' width='50' alt='Logo' /></a>
+        <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
+          <span class='navbar-toggler-icon'></span>
+        </button>
+        <div class='collapse navbar-collapse' id='navbarSupportedContent'>
+          <ul class='navbar-nav ms-3 me-auto mb-2 mb-lg-0'>
+            <li class='nav-item'>
+              <a class='nav-link active' aria-current='page' href='/'>Home</a>
+            </li>
+            <li class='nav-item'>
+              <a class='nav-link' href='/project'>Add Project</a>
+            </li>
+          </ul>
+          <a href='/contact'> <button class='btn text-light rounded-3' type='submit'>Contact Me</button></a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <div class='container pb-5'>
+        <h1 class='text-center fw-bold pt-5 mb-5'> {{detaildata.projectName}}</h1>
+        <div class='row'>
+          <div class='col-lg-7'>
+            <img src='../assets/lebah.jpg' class='img-fluid' alt='Post pict' />
+          </div>
+          <div class='col-lg-5'>
+            <h5 class='fw-bold'>Duration</h5>
+            <h6><i class='fa-solid me-1 fa-calendar-days'></i> {{detaildata.startDate}} To {{detaildata.endDate}} </h6>
+            <h6><i class='fa-solid me-1 fa-clock'></i> {{detaildata.duration}} </h6>
+            <h5 class='fw-bold mt-4'>Technologies</h5>
+            <div class='d-flex'>
+
+              {{#if detaildata.icons.vuejs}}
+                <p> <i class='fa-brands fa-vuejs fs-4 px-2'></i>Vue Js</p>
+              {{/if}}
+              {{#if detaildata.icons.js}}
+                <p> <i class='fa-brands fa-js fs-4 px-2'></i>JavaScript</p>
+              {{/if}}</div>
+            <div class='d-flex'>
+
+              {{#if detaildata.icons.java}}
+                <p> <i class='fa-brands fa-java fs-4 px-2'></i>Java</p>
+              {{/if}}
+              {{#if detaildata.icons.bootstrap}}
+                <p> <i class='fa-brands fa-bootstrap fs-4 px-2'></i>Bootstrap</p>
+              {{/if}}
+            </div>
+          </div>
+
+        </div>
+        <p class='mt-5'> {{detaildata.desc}} </p>
+      </div>
+    </main>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js' integrity='sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2' crossorigin='anonymous'></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #e2e2e2;
+}
+nav a img:hover {
+  transform: rotate(-5deg) scale(1.1);
+}
+nav .btn {
+  background-color: #010a29;
+}
+nav .btn:hover {
+  background-color: #066163;
+}
+
+.container .row img {
+  max-width: 80%;
+}

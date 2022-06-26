@@ -28,6 +28,10 @@ header .container a:hover {
 .card {
   padding: 20px;
 }
+.card a {
+  text-decoration: none;
+  color: inherit;
+}
 .card h6 {
   color: gray;
   font-size: small;
