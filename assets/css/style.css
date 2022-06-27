@@ -1,0 +1,50 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+nav a img:hover {
+  transform: rotate(-5deg) scale(1.1);
+}
+nav .btn {
+  background-color: #010a29;
+}
+nav .btn:hover {
+  background-color: #066163;
+}
+header {
+  background-color: #e7e9ee;
+  padding: 50px 0 80px;
+}
+header .container {
+  background-color: #ffffff;
+  margin-top: 30px;
+  padding: 30px;
+}
+header .container a {
+  background-color: #010a29;
+}
+header .container a:hover {
+  background-color: #066163;
+}
+.card {
+  padding: 20px;
+}
+.card a {
+  text-decoration: none;
+  color: inherit;
+}
+.card h6 {
+  color: gray;
+  font-size: small;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+.card .btn {
+  background-color: #010a29;
+}
+.btn a {
+  text-decoration: none;
+  color: white;
+}
+.card .btn:hover {
+  background-color: #066163;
+}
