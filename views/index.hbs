@@ -30,16 +30,28 @@
               <a class='nav-link active' aria-current='page' href='/'>Home</a>
             </li>
             <li class='nav-item'>
-              <a class='nav-link' href='/project'>Add Project</a>
+              {{#if isLogin}}
+                <a class='nav-link' href='/project'>Add Project</a>
+              {{/if}}
             </li>
           </ul>
           <ul class='navbar-nav me-4'>
-            <li class='nav-item'>
-              <a class='nav-link' href='/register'>Register</a>
-            </li>
-            <li class='nav-item'>
-              <a class='nav-link' href='/login'>Login</a>
-            </li>
+            {{#if isLogin}}
+
+              <li class='nav-item'>
+                <a class='nav-link' href='#'>Halo, {{user.name}}</a>
+              </li>
+              <li class='nav-item'>
+                <a class='nav-link' href='/logout'>Logout</a>
+              </li>
+            {{else}}
+              <li class='nav-item'>
+                <a class='nav-link' href='/register'>Register</a>
+              </li>
+              <li class='nav-item'>
+                <a class='nav-link' href='/login'>Login</a>
+              </li>
+            {{/if}}
           </ul>
           <a href='/contact'> <button class='btn text-light rounded-3' type='submit'>Contact Me</button></a>
         </div>
@@ -47,6 +59,12 @@
     </nav>
     <!-- First display -->
     <header>
+      {{#if messages.success}}
+        <div class='alert alert-success alert-dismissible text-center' role='alert'>
+          <strong>Login Success</strong>
+          <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+        </div>
+      {{/if}}
       <div class='container rounded-4 shadow bg-body'>
         <div class='row'>
           <div class='col-lg-7'>
@@ -85,8 +103,8 @@
         {{#each blogs}}
           <div class='col-lg-4 mb-5'>
             <div class='card' width='10rem'>
-              <img src='https://images.unsplash.com/photo-1603732551658-5fabbafa84eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fHRlY2hub2xvZ2llc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60' alt='Pict' class='mb-1' />
-              <a href='/blog-detail/{{this.id}}' class='mb-2'> <h2>{{this.projectName}}</h2></a>
+              <img src='uploads/{{this.image}}' alt='Pict' class='mb-1' />
+              <a href='/blog-detail/{{id}}' class='mb-2'> <h2>{{this.projectName}}</h2></a>
               <h6>Duration: {{this.duration}}</h6>
               <p>{{this.desc}}</p>
               <div class='d-flex m-4 ms-0'>
@@ -94,23 +112,13 @@
                   <i class='fa-brands fa-{{this}} fs-4 pe-2'></i>
                 {{/each}}
 
-                {{!-- {{#if this.icons.vuejs}}
-                  <i class='fa-brands fa-vuejs fs-4 px-2'></i>
-                {{/if}}
-                {{#if this.icons.js}}<i class='fa-brands fa-js fs-4 pe-2'></i>
-                {{/if}}
-                {{#if this.icons.java}}
-                  <i class='fa-brands fa-java fs-4 px-2'></i>{{/if}}
-                {{#if this.icons.bootstrap}}
-                  <i class='fa-brands fa-bootstrap fs-4 px-2'></i>
-                {{/if}} --}}
               </div>
-              {{#if isLogin}}
-                <div class='d-flex justify-content-evenly'>
+              <div class='d-flex justify-content-evenly'>
+                {{#if isLogin}}
                   <div class='btn text-light ps-5 pe-5'><a href='/edit-blog/{{id}}'> Edit</a></div>
                   <div class='btn text-light ps-5 pe-5'><a href='/delete-blog/{{this.id}}'> Delete</a></div>
-                </div>
-              {{/if}}
+                {{/if}}
+              </div>
             </div>
           </div>
         {{/each}}
@@ -121,35 +129,3 @@
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js' integrity='sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2' crossorigin='anonymous'></script>
   </body>
 </html>
-
-<!-- 2 -->
-{{! <div class='col-lg-4 mb-5'>
-          <div class='card' width='10rem'>
-            <img src='https://images.unsplash.com/photo-1603732551658-5fabbafa84eb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fHRlY2hub2xvZ2llc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60' alt='Pict' class='mb-1' />
-            <h2>Title</h2>
-            <h6>Duration :</h6>
-
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quod deleniti est neque tenetur voluptatibus ad atque dolorem libero magnam!</p>
-            <div class='d-flex justify-content-evenly'>
-              <div class='btn text-light ps-5 pe-5'>Edit</div>
-              <div class='btn text-light ps-5 pe-5'>Delete</div>
-            </div>
-          </div>
-        </div>
-        <!-- 3 -->
-        
-        <!-- 4 -->
-        <div class='col-lg-4 mb-5'>
-          <div class='card besar' width='10rem'>
-            <img src='https://images.unsplash.com/photo-1628054330566-5552b7b25523?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTMyfHx0ZWNobm9sb2dpZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60' alt='Pict' class='mb-1' />
-            <h2>Title</h2>
-            <h6>Duration :</h6>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quod deleniti est neque tenetur voluptatibus ad atque dolorem libero magnam!</p>
-            <div class='d-flex justify-content-evenly'>
-              <div class='btn text-light ps-5 pe-5'>Edit</div>
-              <div class='btn text-light ps-5 pe-5'>Delete</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> }}

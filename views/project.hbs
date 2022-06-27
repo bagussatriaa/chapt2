@@ -24,6 +24,24 @@
               <a class='nav-link' href='/project'>Add Project</a>
             </li>
           </ul>
+          <ul class='navbar-nav me-4'>
+            {{#if isLogin}}
+
+              <li class='nav-item'>
+                <a class='nav-link' href='#'>Halo, {{user.name}}</a>
+              </li>
+              <li class='nav-item'>
+                <a class='nav-link' href='/logout'>Logout</a>
+              </li>
+            {{else}}
+              <li class='nav-item'>
+                <a class='nav-link' href='/register'>Register</a>
+              </li>
+              <li class='nav-item'>
+                <a class='nav-link' href='/login'>Login</a>
+              </li>
+            {{/if}}
+          </ul>
           <a href='/contact'> <button class='btn text-light rounded-3' type='submit'>Contact Me</button></a>
         </div>
       </div>
@@ -34,7 +52,7 @@
         <h1 class='text-center fw-bold pt-5 mb-5'>GET IN TOUCH</h1>
         <div class='row'>
           <div class='col-5 mx-auto'>
-            <form action='/project' method='post'>
+            <form action='/project' method='post' enctype='multipart/form-data'>
               <div>
                 <label class='form-label fw-bold' for='project-name'>Project Name</label>
                 <input class='form-control shadow' type='text' name='project_name' id='project-name' />
